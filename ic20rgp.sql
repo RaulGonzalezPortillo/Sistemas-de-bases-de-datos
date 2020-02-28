@@ -209,6 +209,318 @@ INSERT INTO `presidentes` VALUES (1,'Juárez','García','Benito','San Pablo Guel
 UNLOCK TABLES;
 
 --
+-- Dumping events for database 'ic18rgp'
+--
+
+--
+-- Dumping routines for database 'ic18rgp'
+--
+/*!50003 DROP FUNCTION IF EXISTS `edad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` FUNCTION `edad`(date1 date, date2 date) RETURNS int(11)
+begin
+  declare age int;
+  set age = (year(date2) - year(date1)) - if(right(date2, 5) < right(1, 5), 1, 0);
+  return age;
+  end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `factorial_loop` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` FUNCTION `factorial_loop`(numero INT) RETURNS int(11)
+BEGIN
+DECLARE resultado, contador INT;
+SET resultado = 1;
+SET contador = 1;
+factorial: LOOP
+	SET resultado = resultado * contador;
+    SET contador = contador + 1;
+    IF (contador > numero) THEN
+		LEAVE factorial;
+    END IF;
+END LOOP factorial;
+RETURN resultado;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `factorial_repeat` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` FUNCTION `factorial_repeat`(numero INT) RETURNS int(11)
+BEGIN
+	DECLARE resultado, contador INT;
+  SET resultado = 1;
+  SET contador = 1;
+  REPEAT
+    SET resultado = resultado * contador;
+    SET contador = contador + 1;
+  UNTIL contador > numero
+  END REPEAT;
+RETURN resultado;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `factorial_while` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` FUNCTION `factorial_while`(numero INT) RETURNS int(11)
+BEGIN
+DECLARE resultado, contador INT;
+SET resultado = 1;
+SET contador = 1;
+factorial: WHILE
+    contador <= numero DO
+		SET resultado = resultado * contador;
+		SET contador = contador + 1;
+	END WHILE factorial;
+RETURN resultado;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `potencia_loop` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` FUNCTION `potencia_loop`(base INT, exponente INT) RETURNS int(11)
+BEGIN
+DECLARE resultado, contador INT;
+  SET resultado = 1;
+  SET contador = 1;
+  potencia: LOOP
+    SET resultado = resultado * base;
+    SET contador = contador + 1;
+    IF contador > exponente THEN
+      LEAVE potencia;
+    END IF;
+  END LOOP potencia;
+RETURN resultado;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `potencia_repeat` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` FUNCTION `potencia_repeat`(base INT, exponente INT) RETURNS int(11)
+BEGIN
+	DECLARE resultado, contador INT;
+    SET resultado = 1;
+    SET contador = 1;
+    potencia: REPEAT
+		SET resultado = resultado * base;
+        SET contador = contador + 1;
+	UNTIL contador > exponente
+    END REPEAT potencia;
+RETURN resultado;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `potencia_while` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` FUNCTION `potencia_while`(base INT, exponente INT) RETURNS int(11)
+BEGIN
+	DECLARE resultado, contador INT;
+    SET resultado = 1;
+    SET contador = 1;
+    potencia: WHILE
+    contador <= exponente DO
+		SET resultado = resultado * base;
+        SET contador = contador + 1;
+	END WHILE potencia;
+RETURN resultado;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Ej1_mejorPromedio` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` PROCEDURE `Ej1_mejorPromedio`(OUT mejorPromedio DECIMAL(4, 2), OUT mejorAlumno CHAR(40))
+BEGIN
+	DECLARE salida, calif, contador INT;
+    DECLARE nombreAlumnoTemp CHAR(40);
+    DECLARE promedio, calTotal DECIMAL(6, 2);
+    DECLARE curCalif CURSOR FOR
+		SELECT calificacion FROM Ej1_vistaEstudiantes WHERE nombreAlumno = nombreAlumnoTemp;
+	DECLARE curAlumnos CURSOR FOR
+		SELECT nombreAlumno FROM Ej1_Alumnos;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND
+		SET salida = 1;
+	SET promedio = 0;
+    SET calTotal = 0;
+    SET contador = 0;
+    SET salida = 0;
+    OPEN curAlumnos;
+    curAl: REPEAT
+		FETCH curAlumnos INTO nombreAlumnoTemp;
+        IF salida = 1 THEN
+			LEAVE curAl;
+		END IF;
+        OPEN curCalif;
+        curCal: REPEAT
+			FETCH curCalif INTO calif;
+            IF Salida = 1 THEN
+				LEAVE curCal;
+			END IF;
+            SET calTotal = calTotal + calif;
+            SET contador = contador + 1;
+		UNTIL salida = 1
+        END REPEAT curCal;
+        CLOSE curCalif;
+        SET salida = 0;
+        IF contador > 0 THEN
+			SET calTotal = calTotal / contador;
+		END IF;
+        IF promedio < calTotal THEN
+			SET mejorAlumno = nombreAlumnoTemp;
+            SET promedio = calTotal;
+		END IF;
+	UNTIL salida = 1
+    END REPEAT curAl;
+    CLOSE curAlumnos;
+    SET mejorPromedio = promedio;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Ej1_mejorPromedioOptimizado` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` PROCEDURE `Ej1_mejorPromedioOptimizado`(OUT mejorPromedio DECIMAL(4, 2), OUT mejorAlumno CHAR(40))
+BEGIN
+	DECLARE salida INT;
+    DECLARE nombreAlumnoTemp CHAR(40);
+    DECLARE promedioTemp DECIMAL(4, 2);
+    DECLARE curPromedio CURSOR FOR
+		SELECT AVG(calificacion), nombreAlumno FROM Ej1_vistaEstudiantes GROUP BY nombreAlumno;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND
+		SET salida = 1;
+	SET mejorPromedio = 0;
+    SET salida = 0;
+    OPEN curPromedio;
+    curPr: REPEAT
+		FETCH curPromedio INTO promedioTemp, nombreAlumnoTemp;
+        IF salida = 1 THEN
+			LEAVE curPr;
+		END IF;
+		IF mejorPromedio < promedioTemp THEN
+			SET mejorAlumno = nombreAlumnoTemp;
+            SET mejorPromedio = promedioTemp;
+		END IF;
+	UNTIL salida = 1
+    END REPEAT curPr;
+    CLOSE curPromedio;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `nacio_en_anio` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`ic18rgp`@`localhost` PROCEDURE `nacio_en_anio`(anio_nacimiento int)
+select nombre, ap_paterno, nacimiento, muerte from presidentes where year(nacimiento) = anio_nacimiento ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
 -- Final view structure for view `Ej1_vistaEstudiantes`
 --
 
@@ -235,4 +547,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-27  8:52:30
+-- Dump completed on 2020-02-28  8:32:44
