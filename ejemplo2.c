@@ -5,6 +5,7 @@
 int main(int argc, char *argv[])
 {
   int i = 0;
+  int Year;
   char buffer[1024];
   char *server = "localhost";
   char *user = "ic18rgp";
@@ -26,8 +27,10 @@ int main(int argc, char *argv[])
     printf("Error al seleccionar la bd %s\n", mysql_error(&mysql));
     exit(1);
   }
+  printf("Introduzca el año de nacimiento: ");
+  scanf("%d", &Year);
   //Ejecuta el query
-  sprintf(buffer, "SELECT * FROM presidentes");
+  sprintf(buffer, "SELECT * FROM presidentes WHERE YEAR(nacimiento) = '%d'", Year);
   if(mysql_query(&mysql, buffer))
   {
     printf("Error al ejecutar el query %s\n", mysql_error(&mysql));
