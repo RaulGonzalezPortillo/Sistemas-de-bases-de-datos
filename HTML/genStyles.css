@@ -1,0 +1,181 @@
+/*
+#prueba{
+	font-family: Verdana;
+	color: #FFFFFF;
+	font-size: 15px;
+	position: absolute;
+	top:200px;
+	left:25px;
+	background: #AEAE5E;
+	width: 400px;
+	height: 100px;
+	text-align: left;
+	z-index: -1;
+}
+
+
+
+
+
+*/
+
+
+body.fondopagina{
+	background: #474747;
+}
+
+
+
+
+
+
+
+
+
+
+.prueba{
+	font-family: Arial;
+	color: #FA0000;
+	font-size: 12px;
+	background: #FADCAB;
+	position: relative;
+	top: 50px;
+	left: 250px;
+	width: 100px;
+	height: 100px;
+	overflow: auto;
+	z-index: -1;
+	
+}
+
+
+
+
+.title {
+	font-family: Helvetica;
+	font-weight: bolder;
+	color: #503A1F;
+	font-size: 17px;	
+}
+
+#title {
+	font-family: Arial, Helvetica, sans-serif;
+	/*font-weight: bold;*/
+	color: #0000ff;
+	font-size: 18px;	
+	/*opacity: 0.4;*/
+}
+
+.courier {
+	font-family: courier;
+	font-weight: bold;
+	color: #999999;
+	font-size: 15px;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+table.colourTable{
+	background-color: #FF0000;
+}
+
+td.title{
+
+}
+
+tr.title {
+	font-family: Arial;
+	font-weight: bold;
+	background: #AEAE5E;
+	color: #F5F9E4;
+	/*text-align: center;*/
+	font-size: 12px;
+}
+
+tr.non {
+	background: #B2B2B2;
+}
+
+tr.par {
+	background: #CCCCCC;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+td.dato, td.dato_texto, td.dato_fecha, td.dato_numero {
+	font-size: 12px;
+	font-family: Tahoma;
+/*	font-weight: 900; */
+	color: #000000;
+	/*text-align: left;*/
+}
+
+
+td.titulo, td.titulo_texto {
+	font-size: 12px;
+	font-family: Tahoma;
+	font-weight: 900;
+	text-align: center;
+}
+
+
+
+
+
+
+.comLink:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 12px;
+	color: #10AC05;
+}
+
+.comLink:visited {
+	font-family: Helvetica, sans-serif; 
+	font-size: 25px;
+	color: #FF0000;
+}
+
+.comLink:hover {
+	font-family: Arial; 
+	font-size: 10px;
+	color: #FFAA10;
+}
+
+.comLink:active {
+	font-family: sans-serif; 
+	font-size: 29px;
+	color: #0015FF;
+}
+
+
+
+
+
+
