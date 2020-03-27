@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `Practica2`
 --
-CREATE DATABASE IF NOT EXISTS `Practica2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `Practica2`;
+
+USE `ic18rgp`;
 
 DELIMITER $$
 --

@@ -10,7 +10,7 @@ MYSQL Conectar(MYSQL mysql)
 	char *server = "localhost";
 	char *user = "ic18rgp";
 	char *password = "208366";
-	char *db = "Practica2";
+	char *db = "ic18rgp";
 
 	mysql_init(&mysql);
 
