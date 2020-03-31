@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>
+			Otra prueba
+		</title>
+	</head>
+	<script type="text/javascript">
+	<!--
+		function thesame(value1, value2)
+		{
+			
+			if((value1 != "") && ((value2 != "") && (value1 != value2))){
+				alert("El password y la confirmacion deben ser iguales");
+				document.userForm.formPassword1.value="";
+				document.userForm.formPassword2.value="";
+				return false;
+			}
+			return true;
+		}
+		
+		function verifica()
+		{
+			if(document.userForm.userName.value.length == 0){
+				alert("Falta el usuario");
+				return false;
+			}
+			
+			if(document.userForm.formPassword1.value.length == 0){
+				alert("Falta el password");
+				return false;
+			}
+			
+			if(document.userForm.formPassword2.value.length == 0){
+				alert("Falta el password 2");
+				return false;
+			}
+			return true;
+		}
+	// -->
+	</script>
+	<body>
+		<h1> Forma de usuario</h1>
+		<form method="get" action="test1.php" name="userForm" onsubmit="return verifica();">
+			<table widh="30%" border="1">
+				<tr>
+					<td align="right">
+						Usuario:
+					</td>
+					<td>
+						<input type="text" name="userName" size="20" maxlength="10">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Contrase&ntilde;a:
+					</td>
+					<td>
+						<input type="password" name="formPassword1" size="10" onchange="thesame(document.userForm.formPassword1.value, document.userForm.formPassword2.value);">
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						Teclee el password de nuevo: 
+					</td>
+					<td>
+						<input type="password" name="formPassword2" size="10" onchange="thesame(document.userForm.formPassword1.value, document.userForm.formPassword2.value);">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="Mandar">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
