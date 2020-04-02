@@ -21,5 +21,5 @@
   $template->setVariable{"RESULTADO", $resultado};
 
   $template->show();
-  
+
  ?>
