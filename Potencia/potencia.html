@@ -3,21 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1220">
-    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" type="text/css" media="All" href="./css/estilos.css">
     <link rel="shortcut icon" href="./img/favicon.ico">
+    <script type="text/javascript" src="script.js"></script>
     <title>Potencia de un número</title>
   </head>
   <body>
     <div class="wrapContent">
       <h1>Potencia de un número</h1>
-      <form name="formaPotencia" action="potencia.php" method="post" onsubmit="return verifica();">
-        <div class="entrada">
-          Base:
-          <input type="number" name="entradaBase">
+      <form name="formaPotencia" action="potencia.php" method="POST" onsubmit="return verifica();">
+        <div class="seccionBase">
+          Base: <input type="number" name="entradaBase">
         </div>
-        <div class="entrada">
-          Potencia:
-          <input type="number" name="entradaPotencia">
+        <div class="seccionPotencia">
+          Potencia: <input type="number" name="entradaPotencia">
         </div>
         <input type="submit" name="botonEnviar" value="Calcular">
       </form>

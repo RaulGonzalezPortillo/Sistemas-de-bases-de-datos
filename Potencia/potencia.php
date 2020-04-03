@@ -1,25 +1,20 @@
 <?php
 
-  require_once "HTML/Template/ITX.php"
-  //Cargamos template principal
+  require_once "HTML/Template/ITX.php";
+  //Carga del template principal
   $template = new HTML_Template_ITX('./templates');
   $template->loadTemplatefile("principal.html", true, true);
+	
+		$Base = $_POST['entradaBase'];
+		$Exponente = $_POST['entradaPotencia'];
+		$Resultado = pow($Base,$Exponente);
+	
+		$template->setVariable("TITULO", "Resultado"); 
+		$template->setVariable("BASE", $Base);
+		$template->setVariable("EXPONENTE", $Exponente);
+		$template->setVariable("RESULTADO", $Resultado);
 
-  $base = $_POST['entradaBase'];
-  $potencia = $_POST['entradaPotencia'];
-
-  $resultado = 1;
-
-  for($i = 1; $i <= $potencia; $i++)
-  {
-    $resultado *= $base;
-  }
-
-  $template->setVariable{"TITULO", "Resultado de la potencia"};
-  $template->setVariable{"BASE", $base};
-  $template->setVariable{"EXPONENTE", $potencia};
-  $template->setVariable{"RESULTADO", $resultado};
-
-  $template->show();
-
+	// Mostramos la pagina con los templates que llenamos
+	$template->show();
+ 
  ?>
